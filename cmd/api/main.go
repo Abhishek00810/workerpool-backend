@@ -77,29 +77,30 @@ func (wp *WorkerPool) Stop() {
 }
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
+	// ctx, cancel := context.WithCancel(context.Background())
+	// defer cancel()
 
-	pool := NewWorkerPool(10, 10)
+	// pool := NewWorkerPool(10, 10)
 
-	// Start 3 workers
-	pool.Start(ctx, 3)
+	// // Start 3 workers
+	// pool.Start(ctx, 3)
 
-	// Dispatch 5 jobs
-	go func() {
-		for i := 1; i <= 5; i++ {
-			pool.AddJob(Job{ID: i, Num1: i, Num2: i * 2})
-		}
-		// Standard: Explicitly stop the pool when we are done sending
-		pool.Stop()
-	}()
+	// // Dispatch 5 jobs
+	// go func() {
+	// 	for i := 1; i <= 5; i++ {
+	// 		pool.AddJob(Job{ID: i, Num1: i, Num2: i * 2})
+	// 	}
+	// 	// Standard: Explicitly stop the pool when we are done sending
+	// 	pool.Stop()
+	// }()
 
-	// Consume results
-	// Standard: Range over results allows us to read exactly as many as were sent
-	// until the pool closes the results channel.
-	for res := range pool.results {
-		fmt.Printf("Received Result for Job %d: %d\n", res.JobID, res.Sum)
-	}
+	// // Consume results
+	// // Standard: Range over results allows us to read exactly as many as were sent
+	// // until the pool closes the results channel.
+	// for res := range pool.results {
+	// 	fmt.Printf("Received Result for Job %d: %d\n", res.JobID, res.Sum)
+	// }
 
-	fmt.Println("All jobs finished. Exiting.")
+	// fmt.Println("All jobs finished. Exiting.")
+	RateLimit()
 }
