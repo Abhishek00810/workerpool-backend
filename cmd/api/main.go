@@ -88,7 +88,7 @@ func main() {
 	// // Dispatch 5 jobs
 	// go func() {
 	// 	for i := 1; i <= 5; i++ {
-	// 		pool.AddJob(Job{ID: i, Num1: i, Num2: i * 2})
+	// 		pool.AddJob(Job{ID: i, Num1: i , Num2: i * 2})
 	// 	}
 	// 	// Standard: Explicitly stop the pool when we are done sending
 	// 	pool.Stop()
