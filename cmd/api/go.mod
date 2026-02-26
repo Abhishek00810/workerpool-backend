@@ -2,4 +2,4 @@ module github.com/abhishek00810/concurrency
 
 go 1.25.6
 
-require github.com/lib/pq v1.11.2 // indirect
+require github.com/lib/pq v1.11.2
